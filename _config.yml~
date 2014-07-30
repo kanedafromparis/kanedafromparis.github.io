@@ -3,12 +3,11 @@
 # ----------------------- #
 
 url: http://kanedafromparis.github.io
-title: Kaneda s Blog
+title: My Octopress Blog
 subtitle: A blogging framework for hackers.
-author: kanedafromparis
+author: Your Name
 simple_search: https://www.google.com/search
-description: C est un site personnel sur Linux, Java, l architrecture des SI et les différents sujet SI qui m intéressent
-
+description:
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -65,7 +64,7 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.
 # ----------------------- #
 
 # Github repositories
-github_user: kanedafromparis
+github_user:
 github_repo_count: 0
 github_show_profile_link: true
 github_skip_forks: true
@@ -75,28 +74,28 @@ twitter_user:
 twitter_tweet_button: true
 
 # Google +1
-google_plus_one: true
-google_plus_one_size: small
+google_plus_one: false
+google_plus_one_size: medium
 
 # Google Plus Profile
 # Hidden: No visible button, just add author information to search results
-googleplus_user: kanedafromparis
+googleplus_user:
 googleplus_hidden: false
 
 # Pinboard
 pinboard_user:
-pinboard_count: 0
+pinboard_count: 3
 
 # Delicious
 delicious_user:
-delicious_count: 0
+delicious_count: 3
 
 # Disqus Comments
 disqus_short_name:
 disqus_show_comment_count: false
 
 # Google Analytics
-google_analytics_tracking_id: UA-53332892-1
+google_analytics_tracking_id:
 
 # Facebook Like
 facebook_like: false
