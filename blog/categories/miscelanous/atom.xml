@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Miscelanous | Kaneda s Blog]]></title>
+  <link href="http://kanedafromparis.github.io/blog/categories/miscelanous/atom.xml" rel="self"/>
+  <link href="http://kanedafromparis.github.io/"/>
+  <updated>2014-07-30T13:13:51+02:00</updated>
+  <id>http://kanedafromparis.github.io/</id>
+  <author>
+    <name><![CDATA[kanedafromparis]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Bonjour Le Monde]]></title>
+    <link href="http://kanedafromparis.github.io/blog/2014/07/29/bonjour-le-monde/"/>
+    <updated>2014-07-29T19:53:12+02:00</updated>
+    <id>http://kanedafromparis.github.io/blog/2014/07/29/bonjour-le-monde</id>
+    <content type="html"><![CDATA[<p>Voici mon premier blog sur ce Git-hub, Je supose qu'il faut se présenter. Je suis donc developpeur/architect technique indépendant.
+Je fais des developpeur Java/linux depuis plus de quinze ans.
+Assez sensible à la problèmatique de la sécurité, j'ai pas mal attendu avant de m'exprimer sur internet. Mais avec mes différentes activité cela devient quaisement incontournanble.
+Le but de ce blog est de capitaliser, pour moi, et ceux que cela aide, des trucs et astuces de dev ainsi que quelque réflexions sur le métiers d'architect SI.</p>
+]]></content>
+  </entry>
+  
+</feed>
