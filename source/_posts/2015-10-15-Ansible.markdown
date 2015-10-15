@@ -38,7 +38,7 @@ NB : _L'internet, Git, c'est le partage, la capitalisation, le croudsourcing c'e
 
 
 ## En Pratique 
-
+### Un playbook
 Un  playbook ressemble à cela :
 
 {% codeblock lang:yaml %}
@@ -73,6 +73,23 @@ ou bien
  roles:
    - {role: webservers-template}
 ‘‘‘{% endcodeblock %}
+
+### Un role
+{% codeblock lang:yaml %}
+‘‘‘
+ls -l ansible-xwiki-ctrl/
+
+defaults/main.yml
+files/main.yml
+handlers/main.yml
+meta/main.yml
+tasks/main.yml
+templates/
+vars/main.yml
+README.md
+
+‘‘‘{% endcodeblock %}
+
 
 ## Installation/configuration
 Je passe ce point, il y a plein d'informration pour cela, j'ai pas eu de soucis avec pep (je doit commancé à m'y faire ;-)
@@ -110,7 +127,7 @@ A creusé...
 ansible -m setup nodexwiki | less
 {% endcodeblock %}
 
-#### Pour connaitre les facts
+#### Pour valider la bonne interprétation du playbooks
 {% codeblock lang:bash %}
-ansible -m setup nodexwiki | less
+ansible-playbook ansible-xwiki-example/example.yml --check
 {% endcodeblock %}
