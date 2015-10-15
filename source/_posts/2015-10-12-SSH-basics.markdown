@@ -19,13 +19,15 @@ Historiquement via telnet, mais le flux réseau en telnet n'est pas chiffrer, on
 # SSH
 ## Clés publiques
 Pour que l'échange soit privé, il y a un méchanisme de chiffrement assymetrique, avec un cles priver et une clés public. Lorsque vous vous connecter à un serveur ayant un service SSH, vous faites un échange de clés. La clés du serveur sera associté à son IP dans ~/.ssh/known_hosts.
-{% codeblock lang:bash %}
+
+```Bash
 # ssh jvaljeanuser@example.com
 Host key not found from the list of known hosts.
 Are you sure you want to continue connecting (yes/no)? yes
 Host 'example.com' added to the list of known hosts.
 user@example.com's password: *******
-{% endcodeblock %}
+```
+
 Par defaut, un serveur ssh authorise l'authentification par mot de passe. C'est pratique, mais finalement pas tellement sécurisé.
 *Pizza73* et *01022008* sont des mots de passes facile à bruteforcer. Il est donc préférable de préférer une authentification par clés.
 
@@ -107,7 +109,7 @@ Host example.com
         LocalForward 8888 127.0.0.1:8080
 	      IdentityFile ~/.ssh/id_mongroupedeserver_algo
 	      
-{% codeblock lang:bash %}
+{% endcodeblock %} 
 
 ## Conclusion
 SSH est l'outil de base du sysadmin et du très tendance DevOps. IMHO (a mon humble avis) "~/.ssh/config" n'est pas suffissement connu. 
