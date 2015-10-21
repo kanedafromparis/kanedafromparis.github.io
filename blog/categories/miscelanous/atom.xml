@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Miscelanous | Kaneda s Blog]]></title>
+  <title><![CDATA[Category: Miscelanous | Kaneda's Blog]]></title>
   <link href="http://kanedafromparis.github.io/blog/categories/miscelanous/atom.xml" rel="self"/>
   <link href="http://kanedafromparis.github.io/"/>
-  <updated>2014-07-30T13:13:51+02:00</updated>
+  <updated>2015-10-21T12:07:50+02:00</updated>
   <id>http://kanedafromparis.github.io/</id>
   <author>
     <name><![CDATA[kanedafromparis]]></name>
@@ -18,10 +18,10 @@
     <link href="http://kanedafromparis.github.io/blog/2014/07/29/bonjour-le-monde/"/>
     <updated>2014-07-29T19:53:12+02:00</updated>
     <id>http://kanedafromparis.github.io/blog/2014/07/29/bonjour-le-monde</id>
-    <content type="html"><![CDATA[<p>Voici mon premier blog sur ce Git-hub, Je supose qu'il faut se présenter. Je suis donc developpeur/architect technique indépendant.
-Je fais des developpeur Java/linux depuis plus de quinze ans.
-Assez sensible à la problèmatique de la sécurité, j'ai pas mal attendu avant de m'exprimer sur internet. Mais avec mes différentes activité cela devient quaisement incontournanble.
-Le but de ce blog est de capitaliser, pour moi, et ceux que cela aide, des trucs et astuces de dev ainsi que quelque réflexions sur le métiers d'architect SI.</p>
+    <content type="html"><![CDATA[<p>Voici mon premier blog sur ce Git-hub, Je suppose qu'il faut se présenter. Je suis donc développeur/architecte technique indépendant.
+Je fais des développeurs Java/Linux depuis plus de quinze ans.
+Assez sensible à la problématique de la sécurité, j'ai pas mal attendu avant de m'exprimer sur internet. Mais avec mes différentes activités, cela devient quaisement incontournable.
+Le but de ce blog est de capitaliser, pour moi, et ceux que cela aide, des trucs et astuces de dev ainsi que quelques réflexions sur le métier d'architecte SI.</p>
 ]]></content>
   </entry>
   

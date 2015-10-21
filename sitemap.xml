@@ -1,27 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  
+  <url>
+    <loc>http://kanedafromparis.github.io/blog/2015/10/16/Netbeans_Days_Paris/</loc>
+    <lastmod>2015-10-16T23:53:12+02:00</lastmod>
+  </url>
+  <url>
+    <loc>http://kanedafromparis.github.io/blog/2014/10/15/Ansible/</loc>
+    <lastmod>2014-10-15T12:53:12+02:00</lastmod>
+  </url>
+  <url>
+    <loc>http://kanedafromparis.github.io/blog/2014/10/12/SSH-basics/</loc>
+    <lastmod>2014-10-12T21:53:12+02:00</lastmod>
+  </url>
+  <url>
+    <loc>http://kanedafromparis.github.io/blog/2014/10/03/bash-basics/</loc>
+    <lastmod>2014-10-03T21:53:12+02:00</lastmod>
+  </url>
   <url>
     <loc>http://kanedafromparis.github.io/blog/2014/07/29/bonjour-le-monde/</loc>
     <lastmod>2014-07-29T19:53:12+02:00</lastmod>
-    <priority>0.8</priority>
   </url>
-  
-  
   <url>
     <loc>http://kanedafromparis.github.io/blog/archives/</loc>
-    <lastmod>2014-07-30T13:13:51+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>http://kanedafromparis.github.io/</loc>
-    <lastmod>2014-07-30T13:13:51+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
-  
-  
+  <url>
+    <loc>http://kanedafromparis.github.io/blog/categories/miscelanous/</loc>
+  </url>
+  <url>
+    <loc>http://kanedafromparis.github.io/blog/categories/bash/</loc>
+  </url>
+  <url>
+    <loc>http://kanedafromparis.github.io/blog/categories/run/</loc>
+  </url>
+  <url>
+    <loc>http://kanedafromparis.github.io/blog/categories/bases/</loc>
+  </url>
+  <url>
+    <loc>http://kanedafromparis.github.io/blog/categories/security/</loc>
+  </url>
+  <url>
+    <loc>http://kanedafromparis.github.io/blog/categories/ide/</loc>
+  </url>
+  <url>
+    <loc>http://kanedafromparis.github.io/blog/categories/java/</loc>
+  </url>
 </urlset>

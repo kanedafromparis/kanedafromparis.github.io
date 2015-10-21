@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Les Bases De SSH - Kaneda's Blog</title>
+  <meta name="author" content="kanedafromparis">
+
+  
+  <meta name="description" content="L'accès à distance Dans mon blog précédent, on s'est rappelé combien la ligne de commande était un outil pratique et que cela permettait d' &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kanedafromparis.github.io/blog/2014/10/12/SSH-basics/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Kaneda's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-53332892-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Kaneda's Blog</a></h1>
+  
+    <h2>A Pensieve blog</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="kanedafromparis.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Les Bases De SSH</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-10-12T21:53:12+02:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>9:53 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2><img class="left half" src="images/blog_run.svg" width="150" height="120" title="Main theme is run" alt="Run"></h2>
+
+<h1>L'accès à distance</h1>
+
+<p>Dans mon blog précédent, on s'est rappelé combien la ligne de commande était un outil pratique et que cela permettait d'automatiser des opérations. L'informatique c'est l'automatisation par nature.
+La ligne de commande permet donc d'enchaîner mes taches. C'est une abstraction en cela que votre ligne de commande peut être exécutée à distance.
+Historiquement via telnet, mais le flux réseau en telnet n'est pas chiffrer, on préfère donc utiliser SSH (Secure Shell).</p>
+
+<h1>SSH</h1>
+
+<h2>Clés publiques</h2>
+
+<p>Pour que l'échange soit privé, il y a un mécanisme de chiffrement asymétrique, avec un CLe priver et une clé publique. Lorsque vous vous connectez à un serveur ayant un service SSH, vous faites un échange de clés. La clé du serveur sera associée à son IP dans ~/.ssh/known_hosts.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='Bash'><span class='line'><span class="c"># ssh jvaljeanuser@example.com</span>
+</span><span class='line'>Host key not found from the list of known hosts.
+</span><span class='line'>Are you sure you want to <span class="k">continue</span> connecting <span class="o">(</span>yes/no<span class="o">)</span>? yes
+</span><span class='line'>Host <span class="s1">&#39;example.com&#39;</span> added to the list of known hosts.
+</span><span class='line'>user@example.com<span class="err">&#39;</span>s password: *******
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Par défaut, un serveur ssh autorise l'authentification par mot de passe. C'est pratique, mais finalement pas tellement sécurisé.
+<em>Pizza73</em> et <em>01022008</em> sont des mots de passe faciles à bruteforcer. Il est donc préférable de préférer une authentification par clés.</p>
+
+<h2>configuration OpenSSH</h2>
+
+<p>Pour mieux sécuriser son serveur, on va :</p>
+
+<ul>
+<li>interdire l'utilisateur root</li>
+<li>interdire l'authentification par mots de passe</li>
+<li>définir l'emplacement des clés autorisé</li>
+<li>ajoute la clés de l'utilisateur jvaljean (on verra comment la créer plus loin)</li>
+</ul>
+
+
+<p>NB : Cette commande est proposée en root, mais elle passe avec sudo.</p>
+
+<p><strong> ATTENTION </strong> après cela on ne peut plus ce connecter avec l'utilisateur root</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">TIMESLOT</span><span class="o">=</span><span class="sb">`</span>date +%Y-%m-%d-%H-%M-%S<span class="sb">`</span> <span class="o">&amp;&amp;</span> cp /etc/ssh/sshd_config /etc/ssh/sshd_config.<span class="nv">$TIMESLOT</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>sed -i -e <span class="s2">&quot;s/PermitRootLogin yes/PermitRootLogin no/g&quot;</span> /etc/ssh/sshd_config <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>sed -i -e <span class="s2">&quot;s/#PasswordAuthentication yes/PasswordAuthentication no/g&quot;</span> /etc/ssh/sshd_config <span class="o">&amp;&amp;</span> <span class="se">\ </span>
+</span><span class='line'>/etc/init.d/sshd restart <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>mkdir /home/jvaljean/.ssh/ <span class="o">&amp;&amp;</span>
+</span><span class='line'><span class="nb">echo</span> <span class="s2">&quot;ssh-rsa X2xEB3NzaC1yc2EX2xEDAQABAAACAQCb3AG5VnbDxV3iEdLd+gqVQsOWlx7rg9K4O7i8S8SK5j1/tMq8LWTpzQToEUvOU1Psgmk/rMG2y1qvk1J3xN5s+YIeisXznMgdAF7qotGFbZy1Z6qd/hDqnmu0WbxBBvQOwe4CeyQ75heGx5HXiD2Sshv5sLemNcST4UwNx/TWBpcH0y5oGH1j+3opexQM4enOkJCFAvkBiwJ/oS4v55Qdd59dXHFr9h9TP5MYSa6H/x4BJjumAr9Epd1zTaiuR475cIjmSfB5cHDTqFv82FKCLl2IBnNc2rw5ISXASqcOblbRayEq73kEvd8zuyeA9cAT3Eq9Y3j15mAsjjwQEHx31lt6iLFIZaaCmTYtN3g7F6hv2VnVAJGmwc6cD7Ow9HGo4pLSjxqUwYdVLKSz/5ftT/bltK0S6DicNrGhCRBFUIL7EKO5pqrUa5bKQfHyiKCv8WvjK97KUpqKlCDE+Q7mpJZ3VnFz2WYVczS0sP39g9L976QJ80EfjllwD3cvfduhNhCFoVd3cLVWyxIUW7b/gpfulLgKhT4LabQdWx5445LHMiUSnGql3gH/P/bn5d/5YWvDZTo3YICE0fSEq--4qhQbXRdIPZQxf+yTbIB91ZuXtJrPRLYUWdfXCYsl4ktrqAlfycopOD5vjeNtvWyUhHg3zFVIb+Hzb7e3ZIzYtQ== jvaljean@example.com&quot;</span> &gt;&gt; /home/jvaljean/.ssh/authorized_keys <span class="o">&amp;&amp;</span>
+</span><span class='line'>chown -Rv jvaljean:jvaljean /home/jvaljean/.ssh/ <span class="o">&amp;&amp;</span> <span class="se">\</span>
+</span><span class='line'>chmod u+rw,og-rwx /home/jvaljean/.ssh/authorized_keys
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Maintenant, l'utilisateur root ne peux plus ce connecter, l'utilisateur jvaljean peut se connecter uniquement avec sa clé publique &ldquo;ssh-rsa X2x&hellip;&rdquo;</p>
+
+<h2>création de la clé</h2>
+
+<p>Pour créer sa cles il faut choisir :</p>
+
+<ul>
+<li>sa taille : <em>4 096</em> (d'après l'ANSII donne une durée de vie acceptable ici : <a href="http://www.ssi.gouv.fr/uploads/2015/01/RGS_v-2-0_B1.pdf">http://www.ssi.gouv.fr/uploads/2015/01/RGS_v-2-0_B1.pdf</a>)</li>
+<li>l'algorithme : RSA (par défaut)</li>
+<li>l'emplacement de la clé (Et oui, on peut et devrais avoir plusieurs clés, on y reviendra plus loin, sinon c'est id_rsa)</li>
+<li>un mot de passe pour utiliser la clé (évitons pizza82)</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&quot;jvaljean@example.com&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ou</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&quot;jvaljean@example.com&quot;</span> -f ~/.ssh/id_mongroupedeserver_algo
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Après on peut se connecter au serveur ayant notre clé avec la commande ssh
+Rappel :</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ssh example.com
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ou</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ssh -p <span class="m">22</span> -i ~/.ssh/id_mongroupedeserver_algo jvaljean@example.com
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<h2>le port-mapping</h2>
+
+<p>Une fonction très pratique de SSH est le port mapping il est possible de mapper un port de votre client local à celui du serveur distant. Cela permet de vous connecter à distance sur vos serveurs comme si vous étiez dans votre réseau. on
+peut par exemple mapper le port 8080 d'un Tomcat sur son 8888 local comme ceci</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ssh -p <span class="m">22</span> -i ~/.ssh/id_mongroupedeserver_algo jvaljean@example.com -L 127.0.0.1:8888:example.com:8080
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<p>on pourra par la suite accéder depuis son client web local sur <a href="http://127.0.0.1:8888">http://127.0.0.1:8888</a> comme si nous étions sur le réseau local de la machine</p>
+
+<h2>~/.ssh/config</h2>
+
+<p>Nous l'avons vu précédemment, la clé d'authenfication est précieuse, mais il est parfois nécessaire de la copier sur d'autre machine, elle peut être corrompu ou obsolète. Enfin, certains groupes de serveur peuvent nécessiter des sécurités différentes.
+Pour cela, il est conseillé d'avoir plusieurs cles. Pour éviter de taper des commandes trop longues, il est possible de définir les commandes &ldquo;par défaut, par host dans &rdquo;~/.ssh/config" sous la forme :</p>
+
+<ul>
+<li>Host : les serveurs utilisant cette configuration (liste séparée d'un espace)</li>
+<li><pre><code>Hostname : le nom du serveur qui appelle celui annoncé par le client
+User : le nom de l'utilisateur à utiliser
+  IdentityFile ~/.ssh/id_github_mb35_rsa
+</code></pre></li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>Host example.com
+</span><span class='line'>        Hostname jvaljean@example.com
+</span><span class='line'>        User jvaljean@example.com
+</span><span class='line'>        LocalForward <span class="m">8888</span> 127.0.0.1:8080
+</span><span class='line'>        IdentityFile ~/.ssh/id_mongroupedeserver_algo 
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<h2>Conclusion</h2>
+
+<p>SSH est l'outil de base du sysadmin et du très tendance DevOps.
+IMHO (à mon humble avis) &ldquo;~/.ssh/config&rdquo; n'est pas suffissement connu.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">kanedafromparis</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-10-12T21:53:12+02:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>9:53 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/bases/'>bases</a>, <a class='category' href='/blog/categories/bash/'>bash</a>, <a class='category' href='/blog/categories/run/'>run</a>, <a class='category' href='/blog/categories/security/'>security</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kanedafromparis.github.io/blog/2014/10/12/SSH-basics/" data-via="@kanedafromparis" data-counturl="http://kanedafromparis.github.io/blog/2014/10/12/SSH-basics/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="small"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/10/03/bash-basics/" title="Previous Post: Les bases de la ligne de commandes">&laquo; Les bases de la ligne de commandes</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/10/15/Ansible/" title="Next Post: Permiers pas avec Ansible, impression perso">Permiers pas avec Ansible, impression perso &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/10/16/Netbeans_Days_Paris/">NetBeans Days</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/15/Ansible/">Permiers Pas Avec Ansible, Impression Perso</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/12/SSH-basics/">Les Bases De SSH</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/03/bash-basics/">Les Bases De La Ligne De Commandes</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/29/bonjour-le-monde/">Bonjour Le Monde</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/kanedafromparis">@kanedafromparis</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'kanedafromparis',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/kanedafromparis?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - kanedafromparis -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

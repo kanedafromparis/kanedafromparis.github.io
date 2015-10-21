@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Permiers Pas Avec Ansible, Impression Perso - Kaneda's Blog</title>
+  <meta name="author" content="kanedafromparis">
+
+  
+  <meta name="description" content="Introduction Ansible est un outil python scripting de déploiement. L'idée est de définir un script d'installation. Le script est un fichier en YAML &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://kanedafromparis.github.io/blog/2014/10/15/Ansible/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Kaneda's Blog" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-53332892-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Kaneda's Blog</a></h1>
+  
+    <h2>A Pensieve blog</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="kanedafromparis.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Permiers Pas Avec Ansible, Impression Perso</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-10-15T12:53:12+02:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:53 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2><img class="left half" src="images/blog_run.svg" width="150" height="120" title="Main theme is run" alt="Run"></h2>
+
+<h1>Introduction</h1>
+
+<p><a href="http://www.ansible.com">Ansible</a> est un outil python scripting de déploiement. L'idée est de définir un script d'installation. Le script est un fichier en <a href="http://yaml.org/">YAML</a>. Il me semble que sa spécificité principale est de ne pas nécessiter d'agent et d'être exécuter principalement via SSH, d'avoir un faible impact mémoire.</p>
+
+<p>Il y a (IMHO) 3 concepts majeurs à prendre en compte :
+ - Le playbook
+ - Les modules
+ - Les rôles</p>
+
+<h3>le playbook</h3>
+
+<p>C'est le script d'installation à proprement parler. Il contient une suite de propriétés qui seront utilisées pour exécuter l'installation de la machine distante.</p>
+
+<h3>les modules</h3>
+
+<p>Les modules sont les &ldquo;commandes&rdquo; qu'il est possible d'exécuter directement par ansible. Elles sont développées en python et encapsulent des actions de plus bas niveau (yum install, mkdir, service start etc&hellip;)</p>
+
+<h3>Les rôles</h3>
+
+<p>Les rôles sont des playbooks qui définissent un ensemble ou sous ensemble d'opérations d'installation. Au sein de votre SI (système d'information) vous avez des serveurs de base de données, des serveurs d'application, des reverse-proxy, etc&hellip;, ces rôles sont donc des templates (modèle) d'installation.</p>
+
+<p>NB : _L'internet, Git, c'est le partage, la capitalisation, le croudsourcing c'est pour cela qu'il existe <a href="https://galaxy.ansible.com/">Galaxy Ansible</a> qui permets d'avoir une vaste bibliothèque de rôles développer par des tiers.</p>
+
+<h2>En pratique</h2>
+
+<h3>Un playbook</h3>
+
+<p>Un  playbook ressemble à cela :</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">‘‘‘</span>
+</span><span class='line'><span class="l-Scalar-Plain">- hosts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">webservers</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">vars</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">http_port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">80</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">max_clients</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">200</span>
+</span><span class='line'><span class="-Error">  </span><span class="l-Scalar-Plain">remote_user</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">root</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">tasks</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ensure apache is at the latest version</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">yum</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">pkg=httpd state=latest</span>
+</span><span class='line'>  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">write the apache config file</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">template</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">src=/srv/httpd.j2 dest=/etc/httpd.conf</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">notify</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">restart apache</span>
+</span><span class='line'>  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ensure apache is running (and enable it at boot)</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">name=httpd state=started enabled=yes</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">handlers</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">restart apache</span>
+</span><span class='line'>      <span class="l-Scalar-Plain">service</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">name=httpd state=restarted</span>
+</span><span class='line'><span class="l-Scalar-Plain">‘‘‘</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ou bien</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">‘‘‘</span>
+</span><span class='line'><span class="l-Scalar-Plain">- hosts</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">webservers</span>
+</span><span class='line'>  <span class="l-Scalar-Plain">vars</span><span class="p-Indicator">:</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">http_port</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">80</span>
+</span><span class='line'>    <span class="l-Scalar-Plain">max_clients</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">200</span>
+</span><span class='line'><span class="-Error"> </span><span class="l-Scalar-Plain">rôles</span><span class="p-Indicator">:</span>
+</span><span class='line'>   <span class="p-Indicator">-</span> <span class="p-Indicator">{</span><span class="nv">role</span><span class="p-Indicator">:</span> <span class="nv">webservers-template</span><span class="p-Indicator">}</span>
+</span><span class='line'><span class="l-Scalar-Plain">‘‘‘</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Un role</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">‘‘‘</span>
+</span><span class='line'><span class="l-Scalar-Plain">ls -l ansible-xwiki-ctrl/</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">defaults/main.yml</span>
+</span><span class='line'><span class="l-Scalar-Plain">files/main.yml</span>
+</span><span class='line'><span class="l-Scalar-Plain">handlers/main.yml</span>
+</span><span class='line'><span class="l-Scalar-Plain">meta/main.yml</span>
+</span><span class='line'><span class="l-Scalar-Plain">tasks/main.yml</span>
+</span><span class='line'><span class="l-Scalar-Plain">templates/</span>
+</span><span class='line'><span class="l-Scalar-Plain">vars/main.yml</span>
+</span><span class='line'><span class="l-Scalar-Plain">README.md</span>
+</span><span class='line'>
+</span><span class='line'><span class="l-Scalar-Plain">‘‘‘</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Installation/configuration</h2>
+
+<p>Je passe ce point, il y a plein d'information pour cela, je n’ai pas eu de soucis avec pep (je dois commencer à m'y faire) ;-)</p>
+
+<h2>En pratique</h2>
+
+<p>Sur cette base, j'ai essayé de créer des rôles pour <a href="http://www.xwiki.org">XWiki</a> à titre d'exercices. J'ai donc divisé ma stack (pile applicative) suivant ces différents rôles :
+ - <a href="https://github.com/kanedafromparis/ansible-xwiki-jdk">jdk</a>
+ - <a href="https://github.com/kanedafromparis/ansible-xwiki-mysql">mysql</a>
+ - <a href="https://github.com/kanedafromparis/ansible-xwiki-tomcat">tomcat</a>
+ - <a href="https://github.com/kanedafromparis/ansible-xwiki-war">war</a>
+ - <a href="https://github.com/kanedafromparis/ansible-xwiki-ctrl">ctrl</a></p>
+
+<p>Vous trouverez les rôles sur git-hub et les exercices de variabilisation <a href="https://github.com/kanedafromparis/ansible-xwiki-example">ici</a></p>
+
+<p>En pratique, je peux donc installer sur un serveur &ldquo;debian&rdquo; le jdk 7 ou 8 (openjdk ou oracle), mysql que je veux (debian ou mysql.org), la version d'Xwiki que je souhaite. En modifiant les vars de mon script ou la target de mon playbook.</p>
+
+<h1>Conclusion</h1>
+
+<h2>Complexité et modularité</h2>
+
+<p>Mon constat est que comme souvent le niveau de variablilisation, de ce qu'il faut rendre paramétrable, est toujours un curseur à revoir en fonction du contexte et de ce que l'on souhaite mettre en oeuvre.</p>
+
+<h2>Strategie d'upload</h2>
+
+<p>Ayant travaillé depuis ma machine locale, j'ai downloadé plusieurs fois au cours de l'exercice les paquets de plusieurs Mo. Il y a des stratégies, pour les copier depuis sa machine et/ou répliquer en parallèle. C'est un point qu'il est nécessaire de creuser en fonction de son environnement.</p>
+
+<h2>Immuabilité et test</h2>
+
+<p>Personnellement, j'ai utilisé Virtualbox pour faire des snapshot et valider mes playbook, j'ai regardé pour le fun docker+jenkins, un retour dessus peut être plus tard.</p>
+
+<h2>Strategie de template de VM</h2>
+
+<p>Avec ansible, je produis un script d'installation qui me permet notamment d'avoir un seul script, quels que soient mes environnements (en ayant variabilisé les OS), mais cela peu prendre un certain temps, il peut y avoir des gains à partir d'image de VM provisionner.
+J'ai entendu parler d'utiliser ansible sur docker pour les environnements de dev et d'appliquer ces derniers sur des VM pour la prod.
+À creuser&hellip;</p>
+
+<h1>Les deux trois trucs pour débugger</h1>
+
+<h4>Pour connaître les facts</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ansible -m setup nodexwiki <span class="p">|</span> less
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h4>Pour valider la bonne interprétation du playbooks</h4>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ansible-playbook ansible-xwiki-example/example.yml --check
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">kanedafromparis</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2014-10-15T12:53:12+02:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>12:53 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/bases/'>bases</a>, <a class='category' href='/blog/categories/bash/'>bash</a>, <a class='category' href='/blog/categories/run/'>run</a>, <a class='category' href='/blog/categories/security/'>security</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://kanedafromparis.github.io/blog/2014/10/15/Ansible/" data-via="@kanedafromparis" data-counturl="http://kanedafromparis.github.io/blog/2014/10/15/Ansible/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="small"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/10/12/SSH-basics/" title="Previous Post: Les bases de SSH">&laquo; Les bases de SSH</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2015/10/16/Netbeans_Days_Paris/" title="Next Post: NetBeans Days">NetBeans Days &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/10/16/Netbeans_Days_Paris/">NetBeans Days</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/15/Ansible/">Permiers Pas Avec Ansible, Impression Perso</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/12/SSH-basics/">Les Bases De SSH</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/03/bash-basics/">Les Bases De La Ligne De Commandes</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/29/bonjour-le-monde/">Bonjour Le Monde</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/kanedafromparis">@kanedafromparis</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'kanedafromparis',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/kanedafromparis?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - kanedafromparis -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
