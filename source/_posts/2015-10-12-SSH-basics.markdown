@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Les bases de SSH"
-date: 2014-10-12 19:53:12
+date: 2015-10-12 19:53:12
 comments: false
 categories:
 - bash

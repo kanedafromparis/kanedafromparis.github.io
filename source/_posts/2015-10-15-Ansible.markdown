@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Permiers pas avec Ansible, impression perso"
-date: 2014-10-15 10:53:12
+date: 2015-10-15 10:53:12
 comments: false
 categories:
 - bash
