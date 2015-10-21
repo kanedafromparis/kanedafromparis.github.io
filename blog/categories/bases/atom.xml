@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Bases | Kaneda's Blog]]></title>
   <link href="http://kanedafromparis.github.io/blog/categories/bases/atom.xml" rel="self"/>
   <link href="http://kanedafromparis.github.io/"/>
-  <updated>2015-10-21T12:07:50+02:00</updated>
+  <updated>2015-10-21T12:11:25+02:00</updated>
   <id>http://kanedafromparis.github.io/</id>
   <author>
     <name><![CDATA[kanedafromparis]]></name>
@@ -92,9 +92,9 @@ Un vrai raccourcit pour développer des applications client lourdes.</p>
   
   <entry>
     <title type="html"><![CDATA[Permiers Pas Avec Ansible, Impression Perso]]></title>
-    <link href="http://kanedafromparis.github.io/blog/2014/10/15/Ansible/"/>
-    <updated>2014-10-15T12:53:12+02:00</updated>
-    <id>http://kanedafromparis.github.io/blog/2014/10/15/Ansible</id>
+    <link href="http://kanedafromparis.github.io/blog/2015/10/15/Ansible/"/>
+    <updated>2015-10-15T12:53:12+02:00</updated>
+    <id>http://kanedafromparis.github.io/blog/2015/10/15/Ansible</id>
     <content type="html"><![CDATA[<h2><img class="left half" src="images/blog_run.svg" width="150" height="120" title="&ldquo;Main theme is run&rdquo; &ldquo;Run&rdquo;" ></h2>
 
 <h1>Introduction</h1>
@@ -271,9 +271,9 @@ J'ai entendu parler d'utiliser ansible sur docker pour les environnements de dev
   
   <entry>
     <title type="html"><![CDATA[Les Bases De SSH]]></title>
-    <link href="http://kanedafromparis.github.io/blog/2014/10/12/SSH-basics/"/>
-    <updated>2014-10-12T21:53:12+02:00</updated>
-    <id>http://kanedafromparis.github.io/blog/2014/10/12/SSH-basics</id>
+    <link href="http://kanedafromparis.github.io/blog/2015/10/12/SSH-basics/"/>
+    <updated>2015-10-12T21:53:12+02:00</updated>
+    <id>http://kanedafromparis.github.io/blog/2015/10/12/SSH-basics</id>
     <content type="html"><![CDATA[<h2><img class="left half" src="images/blog_run.svg" width="150" height="120" title="&ldquo;Main theme is run&rdquo; &ldquo;Run&rdquo;" ></h2>
 
 <h1>L'accès à distance</h1>
@@ -327,7 +327,7 @@ user@example.com's password: *******
 </span><span class='line'>sed -i -e <span class="p">&amp;</span>ldquo<span class="p">;</span>s/#PasswordAuthentication yes/PasswordAuthentication no/g<span class="p">&amp;</span>rdquo<span class="p">;</span> /etc/ssh/sshd_config <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> <span class="se">\</span>
 </span><span class='line'>/etc/init.d/sshd restart <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> <span class="se">\</span>
 </span><span class='line'>mkdir /home/jvaljean/.ssh/ <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span>
-</span><span class='line'><span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span>ssh-rsa X2xEB3NzaC1yc2EX2xEDAQABAAACAQCb3AG5VnbDxV3iEdLd+gqVQsOWlx7rg9K4O7i8S8SK5j1/tMq8LWTpzQToEUvOU1Psgmk/rMG2y1qvk1J3xN5s+YIeisXznMgdAF7qotGFbZy1Z6qd/hDqnmu0WbxBBvQOwe4CeyQ75heGx5HXiD2Sshv5sLemNcST4UwNx/TWBpcH0y5oGH1j+3opexQM4enOkJCFAvkBiwJ/oS4v55Qdd59dXHFr9h9TP5MYSa6H/x4BJjumAr9Epd1zTaiuR475cIjmSfB5cHDTqFv82FKCLl2IBnNc2rw5ISXASqcOblbRayEq73kEvd8zuyeA9cAT3Eq9Y3j15mAsjjwQEHx31lt6iLFIZaaCmTYtN3g7F6hv2VnVAJGmwc6cD7Ow9HGo4pLSjxqUwYdVLKSz/5ftT/bltK0S6DicNrGhCRBFUIL7EKO5pqrUa5bKQfHyiKCv8WvjK97KUpqKlCDE+Q7mpJZ3VnFz2WYVczS0sP39g9L976QJ80EfjllwD3cvfduhNhCFoVd3cLVWyxIUW7b/gpfulLgKhT4LabQdWx5445LHMiUSnGql3gH/P/bn5d/5YWvDZTo3YICE0fSEq<span class="p">&amp;</span>ndash<span class="p">;</span>4qhQbXRdIPZQxf+yTbIB91ZuXtJrPRLYUWdfXCYsl4ktrqAlfycopOD5vjeNtvWyUhHg3zFVIb+Hzb7e3ZIzYtQ<span class="o">==</span> &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;&amp;#109;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#111;&amp;#58;&amp;#106;&amp;#x76;&amp;#97;&amp;#108;&amp;#106;&amp;#x65;&amp;#97;&amp;#110;&amp;#64;&amp;#101;&amp;#120;&amp;#97;&amp;#109;&amp;#x70;&amp;#x6c;&amp;#x65;&amp;#x2e;&amp;#x63;&amp;#111;&amp;#x6d;&quot;</span>&gt;<span class="p">&amp;</span><span class="c">#106;&amp;#x76;&amp;#x61;&amp;#x6c;&amp;#106;&amp;#101;&amp;#97;&amp;#x6e;&amp;#64;&amp;#101;&amp;#x78;&amp;#97;&amp;#109;&amp;#112;&amp;#108;&amp;#101;&amp;#x2e;&amp;#x63;&amp;#111;&amp;#109;&lt;/a&gt;&amp;rdquo; &gt;&gt; /home/jvaljean/.ssh/authorized_keys &amp;amp;&amp;amp;</span>
+</span><span class='line'><span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span>ssh-rsa X2xEB3NzaC1yc2EX2xEDAQABAAACAQCb3AG5VnbDxV3iEdLd+gqVQsOWlx7rg9K4O7i8S8SK5j1/tMq8LWTpzQToEUvOU1Psgmk/rMG2y1qvk1J3xN5s+YIeisXznMgdAF7qotGFbZy1Z6qd/hDqnmu0WbxBBvQOwe4CeyQ75heGx5HXiD2Sshv5sLemNcST4UwNx/TWBpcH0y5oGH1j+3opexQM4enOkJCFAvkBiwJ/oS4v55Qdd59dXHFr9h9TP5MYSa6H/x4BJjumAr9Epd1zTaiuR475cIjmSfB5cHDTqFv82FKCLl2IBnNc2rw5ISXASqcOblbRayEq73kEvd8zuyeA9cAT3Eq9Y3j15mAsjjwQEHx31lt6iLFIZaaCmTYtN3g7F6hv2VnVAJGmwc6cD7Ow9HGo4pLSjxqUwYdVLKSz/5ftT/bltK0S6DicNrGhCRBFUIL7EKO5pqrUa5bKQfHyiKCv8WvjK97KUpqKlCDE+Q7mpJZ3VnFz2WYVczS0sP39g9L976QJ80EfjllwD3cvfduhNhCFoVd3cLVWyxIUW7b/gpfulLgKhT4LabQdWx5445LHMiUSnGql3gH/P/bn5d/5YWvDZTo3YICE0fSEq<span class="p">&amp;</span>ndash<span class="p">;</span>4qhQbXRdIPZQxf+yTbIB91ZuXtJrPRLYUWdfXCYsl4ktrqAlfycopOD5vjeNtvWyUhHg3zFVIb+Hzb7e3ZIzYtQ<span class="o">==</span> &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;&amp;#109;&amp;#x61;&amp;#x69;&amp;#108;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#106;&amp;#x76;&amp;#97;&amp;#x6c;&amp;#106;&amp;#101;&amp;#97;&amp;#110;&amp;#x40;&amp;#101;&amp;#x78;&amp;#97;&amp;#109;&amp;#x70;&amp;#x6c;&amp;#x65;&amp;#46;&amp;#x63;&amp;#x6f;&amp;#x6d;&quot;</span>&gt;<span class="p">&amp;</span><span class="c">#x6a;&amp;#x76;&amp;#97;&amp;#108;&amp;#x6a;&amp;#x65;&amp;#97;&amp;#x6e;&amp;#x40;&amp;#x65;&amp;#120;&amp;#x61;&amp;#109;&amp;#112;&amp;#x6c;&amp;#101;&amp;#46;&amp;#x63;&amp;#x6f;&amp;#109;&lt;/a&gt;&amp;rdquo; &gt;&gt; /home/jvaljean/.ssh/authorized_keys &amp;amp;&amp;amp;</span>
 </span><span class='line'>chown -Rv jvaljean:jvaljean /home/jvaljean/.ssh/ <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> <span class="se">\</span>
 </span><span class='line'>chmod u+rw,og-rwx /home/jvaljean/.ssh/authorized_keys
 </span></code></pre></td></tr></table></div></figure></p>
@@ -347,11 +347,11 @@ user@example.com's password: *******
 
 
 <p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="p">&amp;</span>ldquo<span class="p">;</span>&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;&amp;#x6d;&amp;#97;&amp;#105;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#x6a;&amp;#118;&amp;#x61;&amp;#x6c;&amp;#x6a;&amp;#x65;&amp;#97;&amp;#110;&amp;#x40;&amp;#101;&amp;#120;&amp;#97;&amp;#109;&amp;#112;&amp;#108;&amp;#101;&amp;#46;&amp;#99;&amp;#x6f;&amp;#109;&quot;</span>&gt;<span class="p">&amp;</span><span class="c">#x6a;&amp;#118;&amp;#97;&amp;#x6c;&amp;#x6a;&amp;#x65;&amp;#x61;&amp;#x6e;&amp;#x40;&amp;#101;&amp;#120;&amp;#97;&amp;#x6d;&amp;#x70;&amp;#x6c;&amp;#101;&amp;#46;&amp;#99;&amp;#111;&amp;#x6d;&lt;/a&gt;&amp;rdquo;</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="p">&amp;</span>ldquo<span class="p">;</span>&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;&amp;#x6d;&amp;#97;&amp;#105;&amp;#108;&amp;#x74;&amp;#x6f;&amp;#x3a;&amp;#x6a;&amp;#118;&amp;#97;&amp;#x6c;&amp;#x6a;&amp;#x65;&amp;#x61;&amp;#x6e;&amp;#64;&amp;#x65;&amp;#x78;&amp;#x61;&amp;#109;&amp;#112;&amp;#x6c;&amp;#101;&amp;#x2e;&amp;#x63;&amp;#x6f;&amp;#x6d;&quot;</span>&gt;<span class="p">&amp;</span><span class="c">#106;&amp;#118;&amp;#97;&amp;#108;&amp;#106;&amp;#101;&amp;#97;&amp;#110;&amp;#64;&amp;#x65;&amp;#x78;&amp;#x61;&amp;#x6d;&amp;#x70;&amp;#108;&amp;#101;&amp;#46;&amp;#99;&amp;#x6f;&amp;#109;&lt;/a&gt;&amp;rdquo;</span>
 </span></code></pre></td></tr></table></div></figure>
 ou
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="p">&amp;</span>ldquo<span class="p">;</span>&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;&amp;#109;&amp;#97;&amp;#105;&amp;#x6c;&amp;#116;&amp;#111;&amp;#x3a;&amp;#x6a;&amp;#118;&amp;#97;&amp;#x6c;&amp;#x6a;&amp;#101;&amp;#97;&amp;#x6e;&amp;#64;&amp;#x65;&amp;#120;&amp;#x61;&amp;#109;&amp;#x70;&amp;#x6c;&amp;#101;&amp;#46;&amp;#99;&amp;#111;&amp;#109;&quot;</span>&gt;<span class="p">&amp;</span><span class="c">#x6a;&amp;#118;&amp;#97;&amp;#108;&amp;#106;&amp;#101;&amp;#97;&amp;#x6e;&amp;#64;&amp;#101;&amp;#x78;&amp;#x61;&amp;#109;&amp;#x70;&amp;#x6c;&amp;#101;&amp;#46;&amp;#x63;&amp;#x6f;&amp;#109;&lt;/a&gt;&amp;rdquo; -f ~/.ssh/id_mongroupedeserver_algo</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="p">&amp;</span>ldquo<span class="p">;</span>&lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;&amp;#x6d;&amp;#x61;&amp;#x69;&amp;#x6c;&amp;#x74;&amp;#111;&amp;#x3a;&amp;#106;&amp;#x76;&amp;#97;&amp;#108;&amp;#x6a;&amp;#x65;&amp;#97;&amp;#x6e;&amp;#x40;&amp;#x65;&amp;#x78;&amp;#x61;&amp;#x6d;&amp;#112;&amp;#108;&amp;#101;&amp;#x2e;&amp;#x63;&amp;#x6f;&amp;#x6d;&quot;</span>&gt;<span class="p">&amp;</span><span class="c">#x6a;&amp;#x76;&amp;#x61;&amp;#x6c;&amp;#106;&amp;#101;&amp;#97;&amp;#x6e;&amp;#x40;&amp;#101;&amp;#x78;&amp;#97;&amp;#x6d;&amp;#x70;&amp;#108;&amp;#x65;&amp;#46;&amp;#99;&amp;#111;&amp;#x6d;&lt;/a&gt;&amp;rdquo; -f ~/.ssh/id_mongroupedeserver_algo</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
 <p>Après on peut se connecter au serveur ayant notre clé avec la commande ssh
@@ -361,7 +361,7 @@ Rappel :
 </span></code></pre></td></tr></table></div></figure>
 ou
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>ssh -p <span class="m">22</span> -i ~/.ssh/id_mongroupedeserver_algo &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;&amp;#109;&amp;#x61;&amp;#x69;&amp;#108;&amp;#116;&amp;#111;&amp;#58;&amp;#106;&amp;#118;&amp;#97;&amp;#108;&amp;#x6a;&amp;#101;&amp;#97;&amp;#110;&amp;#x40;&amp;#101;&amp;#120;&amp;#97;&amp;#x6d;&amp;#x70;&amp;#x6c;&amp;#101;&amp;#x2e;&amp;#x63;&amp;#x6f;&amp;#x6d;&quot;</span>&gt;<span class="p">&amp;</span><span class="c">#x6a;&amp;#118;&amp;#97;&amp;#x6c;&amp;#106;&amp;#101;&amp;#97;&amp;#110;&amp;#64;&amp;#101;&amp;#x78;&amp;#x61;&amp;#109;&amp;#x70;&amp;#x6c;&amp;#101;&amp;#46;&amp;#99;&amp;#111;&amp;#x6d;&lt;/a&gt;</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ssh -p <span class="m">22</span> -i ~/.ssh/id_mongroupedeserver_algo &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;&amp;#x6d;&amp;#97;&amp;#105;&amp;#108;&amp;#116;&amp;#111;&amp;#x3a;&amp;#106;&amp;#x76;&amp;#97;&amp;#x6c;&amp;#106;&amp;#x65;&amp;#97;&amp;#x6e;&amp;#x40;&amp;#101;&amp;#x78;&amp;#97;&amp;#109;&amp;#x70;&amp;#x6c;&amp;#101;&amp;#x2e;&amp;#x63;&amp;#111;&amp;#109;&quot;</span>&gt;<span class="p">&amp;</span><span class="c">#x6a;&amp;#118;&amp;#97;&amp;#x6c;&amp;#106;&amp;#101;&amp;#x61;&amp;#110;&amp;#x40;&amp;#101;&amp;#x78;&amp;#x61;&amp;#x6d;&amp;#x70;&amp;#108;&amp;#101;&amp;#46;&amp;#x63;&amp;#x6f;&amp;#x6d;&lt;/a&gt;</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
 <h2>le port-mapping</h2>
@@ -370,7 +370,7 @@ ou
 peut par exemple mapper le port 8080 d'un Tomcat sur son 8888 local comme ceci</p>
 
 <p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>ssh -p <span class="m">22</span> -i ~/.ssh/id_mongroupedeserver_algo &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;&amp;#109;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#x74;&amp;#x6f;&amp;#58;&amp;#x6a;&amp;#118;&amp;#x61;&amp;#108;&amp;#x6a;&amp;#101;&amp;#x61;&amp;#110;&amp;#64;&amp;#x65;&amp;#120;&amp;#x61;&amp;#x6d;&amp;#112;&amp;#108;&amp;#101;&amp;#46;&amp;#x63;&amp;#111;&amp;#109;&quot;</span>&gt;<span class="p">&amp;</span><span class="c">#x6a;&amp;#118;&amp;#97;&amp;#108;&amp;#106;&amp;#x65;&amp;#97;&amp;#110;&amp;#64;&amp;#x65;&amp;#120;&amp;#x61;&amp;#x6d;&amp;#x70;&amp;#108;&amp;#101;&amp;#x2e;&amp;#x63;&amp;#111;&amp;#109;&lt;/a&gt; -L 127.0.0.1:8888:example.com:8080</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ssh -p <span class="m">22</span> -i ~/.ssh/id_mongroupedeserver_algo &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;&amp;#x6d;&amp;#x61;&amp;#105;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#x6a;&amp;#118;&amp;#x61;&amp;#x6c;&amp;#106;&amp;#101;&amp;#97;&amp;#x6e;&amp;#64;&amp;#101;&amp;#120;&amp;#97;&amp;#x6d;&amp;#112;&amp;#108;&amp;#101;&amp;#46;&amp;#x63;&amp;#x6f;&amp;#109;&quot;</span>&gt;<span class="p">&amp;</span><span class="c">#106;&amp;#118;&amp;#x61;&amp;#x6c;&amp;#x6a;&amp;#101;&amp;#x61;&amp;#x6e;&amp;#x40;&amp;#x65;&amp;#120;&amp;#97;&amp;#x6d;&amp;#112;&amp;#108;&amp;#x65;&amp;#46;&amp;#99;&amp;#111;&amp;#109;&lt;/a&gt; -L 127.0.0.1:8888:example.com:8080</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
 <p>on pourra par la suite accéder depuis son client web local sur <a href="http://127.0.0.1:8888">http://127.0.0.1:8888</a> comme si nous étions sur le réseau local de la machine</p>
@@ -395,8 +395,8 @@ User : le nom de l'utilisateur à utiliser
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 </pre></td><td class='code'><pre><code class='bash'><span class='line'>Host example.com
-</span><span class='line'>        Hostname &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;&amp;#109;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#58;&amp;#106;&amp;#118;&amp;#97;&amp;#x6c;&amp;#106;&amp;#101;&amp;#x61;&amp;#110;&amp;#64;&amp;#101;&amp;#120;&amp;#97;&amp;#x6d;&amp;#x70;&amp;#108;&amp;#101;&amp;#46;&amp;#99;&amp;#111;&amp;#109;&quot;</span>&gt;<span class="p">&amp;</span><span class="c">#x6a;&amp;#x76;&amp;#97;&amp;#x6c;&amp;#x6a;&amp;#101;&amp;#97;&amp;#x6e;&amp;#64;&amp;#x65;&amp;#x78;&amp;#x61;&amp;#109;&amp;#x70;&amp;#108;&amp;#101;&amp;#x2e;&amp;#x63;&amp;#111;&amp;#x6d;&lt;/a&gt;</span>
-</span><span class='line'>        User &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;&amp;#109;&amp;#x61;&amp;#105;&amp;#x6c;&amp;#116;&amp;#111;&amp;#x3a;&amp;#x6a;&amp;#118;&amp;#97;&amp;#x6c;&amp;#106;&amp;#x65;&amp;#97;&amp;#x6e;&amp;#x40;&amp;#101;&amp;#120;&amp;#97;&amp;#x6d;&amp;#x70;&amp;#x6c;&amp;#101;&amp;#x2e;&amp;#99;&amp;#111;&amp;#x6d;&quot;</span>&gt;<span class="p">&amp;</span><span class="c">#x6a;&amp;#x76;&amp;#97;&amp;#108;&amp;#x6a;&amp;#x65;&amp;#97;&amp;#110;&amp;#x40;&amp;#x65;&amp;#120;&amp;#97;&amp;#x6d;&amp;#112;&amp;#108;&amp;#x65;&amp;#x2e;&amp;#99;&amp;#x6f;&amp;#109;&lt;/a&gt;</span>
+</span><span class='line'>        Hostname &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;&amp;#109;&amp;#x61;&amp;#105;&amp;#108;&amp;#x74;&amp;#111;&amp;#58;&amp;#x6a;&amp;#118;&amp;#x61;&amp;#x6c;&amp;#106;&amp;#x65;&amp;#x61;&amp;#x6e;&amp;#x40;&amp;#x65;&amp;#x78;&amp;#97;&amp;#109;&amp;#112;&amp;#108;&amp;#x65;&amp;#x2e;&amp;#99;&amp;#x6f;&amp;#x6d;&quot;</span>&gt;<span class="p">&amp;</span><span class="c">#106;&amp;#x76;&amp;#x61;&amp;#108;&amp;#x6a;&amp;#101;&amp;#x61;&amp;#x6e;&amp;#64;&amp;#x65;&amp;#120;&amp;#x61;&amp;#x6d;&amp;#x70;&amp;#x6c;&amp;#x65;&amp;#x2e;&amp;#99;&amp;#x6f;&amp;#109;&lt;/a&gt;</span>
+</span><span class='line'>        User &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;&amp;#x6d;&amp;#97;&amp;#105;&amp;#108;&amp;#116;&amp;#111;&amp;#x3a;&amp;#x6a;&amp;#x76;&amp;#97;&amp;#108;&amp;#x6a;&amp;#x65;&amp;#97;&amp;#110;&amp;#64;&amp;#101;&amp;#x78;&amp;#97;&amp;#109;&amp;#112;&amp;#108;&amp;#101;&amp;#46;&amp;#x63;&amp;#x6f;&amp;#x6d;&quot;</span>&gt;<span class="p">&amp;</span><span class="c">#106;&amp;#x76;&amp;#97;&amp;#108;&amp;#106;&amp;#101;&amp;#97;&amp;#110;&amp;#64;&amp;#x65;&amp;#x78;&amp;#97;&amp;#109;&amp;#x70;&amp;#108;&amp;#x65;&amp;#46;&amp;#99;&amp;#x6f;&amp;#x6d;&lt;/a&gt;</span>
 </span><span class='line'>        LocalForward <span class="m">8888</span> 127.0.0.1:8080
 </span><span class='line'>          IdentityFile ~/.ssh/id_mongroupedeserver_algo     &lt;br/&gt;
 </span></code></pre></td></tr></table></div></figure></p>
@@ -410,9 +410,9 @@ IMHO (à mon humble avis) &ldquo;~/.ssh/config&rdquo; n'est pas suffissement con
   
   <entry>
     <title type="html"><![CDATA[Les Bases De La Ligne De Commandes]]></title>
-    <link href="http://kanedafromparis.github.io/blog/2014/10/03/bash-basics/"/>
-    <updated>2014-10-03T21:53:12+02:00</updated>
-    <id>http://kanedafromparis.github.io/blog/2014/10/03/bash-basics</id>
+    <link href="http://kanedafromparis.github.io/blog/2015/10/03/bash-basics/"/>
+    <updated>2015-10-03T21:53:12+02:00</updated>
+    <id>http://kanedafromparis.github.io/blog/2015/10/03/bash-basics</id>
     <content type="html"><![CDATA[<h2><img class="left half" src="images/blog_run.svg" width="150" height="120" title="&ldquo;Main theme is run&rdquo; &ldquo;Run&rdquo;" ></h2>
 
 <h2>Les terminaux</h2>
@@ -523,7 +523,7 @@ IMHO (à mon humble avis) &ldquo;~/.ssh/config&rdquo; n'est pas suffissement con
 </pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">TIMESLOT</span><span class="o">=</span>&lt;code&gt;date +%d/%b/%Y&lt;/code&gt; <span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> <span class="se">\</span>
 </span><span class='line'><span class="nv">NIP</span><span class="o">=</span><span class="k">$(</span>cat /var/log/apache2/xwiki-access.log <span class="p">|</span> grep <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$TIMESLOT</span><span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="p">|</span> <span class="se">\</span>
 </span><span class='line'>awk <span class="p">&amp;</span>lsquo<span class="p">;</span><span class="o">{</span>split<span class="o">(</span><span class="nv">$0</span>,a,<span class="p">&amp;</span>ldquo<span class="p">;</span> <span class="p">&amp;</span>rdquo<span class="p">;</span><span class="k">)</span><span class="p">;</span> print a<span class="o">[</span>1<span class="o">]}</span><span class="p">&amp;</span>rsquo<span class="p">;</span> <span class="p">|</span> sort -nu <span class="p">|</span> wc -l<span class="o">)</span> <span class="se">\</span>
-</span><span class='line'><span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> <span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$NIP</span> on <span class="nv">$TIMESLOT</span><span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="p">|</span> mail -s <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$NIP</span> on <span class="nv">$TIMESLOT</span><span class="p">&amp;</span>rdquo<span class="p">;</span> &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;&amp;#109;&amp;#x61;&amp;#105;&amp;#x6c;&amp;#116;&amp;#x6f;&amp;#x3a;&amp;#106;&amp;#x76;&amp;#x61;&amp;#x6c;&amp;#106;&amp;#x65;&amp;#x61;&amp;#x6e;&amp;#64;&amp;#103;&amp;#x6d;&amp;#x61;&amp;#105;&amp;#108;&amp;#x2e;&amp;#111;&amp;#114;&amp;#x67;&quot;</span>&gt;<span class="p">&amp;</span><span class="c">#106;&amp;#x76;&amp;#97;&amp;#108;&amp;#106;&amp;#x65;&amp;#x61;&amp;#x6e;&amp;#x40;&amp;#103;&amp;#109;&amp;#x61;&amp;#105;&amp;#108;&amp;#46;&amp;#x6f;&amp;#x72;&amp;#x67;&lt;/a&gt;</span>
+</span><span class='line'><span class="p">&amp;</span>amp<span class="p">;&amp;</span>amp<span class="p">;</span> <span class="nb">echo</span> <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$NIP</span> on <span class="nv">$TIMESLOT</span><span class="p">&amp;</span>rdquo<span class="p">;</span> <span class="p">|</span> mail -s <span class="p">&amp;</span>ldquo<span class="p">;</span><span class="nv">$NIP</span> on <span class="nv">$TIMESLOT</span><span class="p">&amp;</span>rdquo<span class="p">;</span> &lt;a <span class="nv">href</span><span class="o">=</span><span class="s2">&quot;&amp;#x6d;&amp;#97;&amp;#x69;&amp;#x6c;&amp;#x74;&amp;#x6f;&amp;#x3a;&amp;#x6a;&amp;#118;&amp;#97;&amp;#108;&amp;#x6a;&amp;#x65;&amp;#x61;&amp;#x6e;&amp;#64;&amp;#x67;&amp;#109;&amp;#97;&amp;#105;&amp;#x6c;&amp;#46;&amp;#111;&amp;#x72;&amp;#x67;&quot;</span>&gt;<span class="p">&amp;</span><span class="c">#106;&amp;#118;&amp;#97;&amp;#x6c;&amp;#106;&amp;#x65;&amp;#97;&amp;#110;&amp;#64;&amp;#x67;&amp;#x6d;&amp;#x61;&amp;#x69;&amp;#108;&amp;#x2e;&amp;#x6f;&amp;#x72;&amp;#103;&lt;/a&gt;</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
 <h2>Conclusion</h2>

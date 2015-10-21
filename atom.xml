@@ -4,7 +4,7 @@
   <title><![CDATA[Kaneda's Blog]]></title>
   <link href="http://kanedafromparis.github.io/atom.xml" rel="self"/>
   <link href="http://kanedafromparis.github.io/"/>
-  <updated>2015-10-21T12:07:50+02:00</updated>
+  <updated>2015-10-21T12:11:25+02:00</updated>
   <id>http://kanedafromparis.github.io/</id>
   <author>
     <name><![CDATA[kanedafromparis]]></name>
@@ -92,9 +92,9 @@ Un vrai raccourcit pour développer des applications client lourdes.</p>
   
   <entry>
     <title type="html"><![CDATA[Permiers Pas Avec Ansible, Impression Perso]]></title>
-    <link href="http://kanedafromparis.github.io/blog/2014/10/15/Ansible/"/>
-    <updated>2014-10-15T12:53:12+02:00</updated>
-    <id>http://kanedafromparis.github.io/blog/2014/10/15/Ansible</id>
+    <link href="http://kanedafromparis.github.io/blog/2015/10/15/Ansible/"/>
+    <updated>2015-10-15T12:53:12+02:00</updated>
+    <id>http://kanedafromparis.github.io/blog/2015/10/15/Ansible</id>
     <content type="html"><![CDATA[<h2><img class="left half" src="images/blog_run.svg" width="150" height="120" title="Main theme is run" alt="Run"></h2>
 
 <h1>Introduction</h1>
@@ -276,9 +276,9 @@ J'ai entendu parler d'utiliser ansible sur docker pour les environnements de dev
   
   <entry>
     <title type="html"><![CDATA[Les Bases De SSH]]></title>
-    <link href="http://kanedafromparis.github.io/blog/2014/10/12/SSH-basics/"/>
-    <updated>2014-10-12T21:53:12+02:00</updated>
-    <id>http://kanedafromparis.github.io/blog/2014/10/12/SSH-basics</id>
+    <link href="http://kanedafromparis.github.io/blog/2015/10/12/SSH-basics/"/>
+    <updated>2015-10-12T21:53:12+02:00</updated>
+    <id>http://kanedafromparis.github.io/blog/2015/10/12/SSH-basics</id>
     <content type="html"><![CDATA[<h2><img class="left half" src="images/blog_run.svg" width="150" height="120" title="Main theme is run" alt="Run"></h2>
 
 <h1>L'accès à distance</h1>
@@ -439,9 +439,9 @@ IMHO (à mon humble avis) &ldquo;~/.ssh/config&rdquo; n'est pas suffissement con
   
   <entry>
     <title type="html"><![CDATA[Les Bases De La Ligne De Commandes]]></title>
-    <link href="http://kanedafromparis.github.io/blog/2014/10/03/bash-basics/"/>
-    <updated>2014-10-03T21:53:12+02:00</updated>
-    <id>http://kanedafromparis.github.io/blog/2014/10/03/bash-basics</id>
+    <link href="http://kanedafromparis.github.io/blog/2015/10/03/bash-basics/"/>
+    <updated>2015-10-03T21:53:12+02:00</updated>
+    <id>http://kanedafromparis.github.io/blog/2015/10/03/bash-basics</id>
     <content type="html"><![CDATA[<h2><img class="left half" src="images/blog_run.svg" width="150" height="120" title="Main theme is run" alt="Run"></h2>
 
 <h2>Les terminaux</h2>
