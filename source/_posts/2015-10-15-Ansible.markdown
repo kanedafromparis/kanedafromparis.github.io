@@ -15,29 +15,29 @@ music:
 ---
 # Introduction
 
-[Ansible](http://www.ansible.com) est un outil python scripting de déploiement. L'idée est definir un script d'installation. Le script est un fichier en [YAML](http://yaml.org/). Il me semble que sa spécificité principale est de ne pas nécessiter d'agent et d'être exécuter pricipalement via SSH, d'avoir un faible impact mémoire. 
+[Ansible](http://www.ansible.com) est un outil python scripting de déploiement. L'idée est de définir un script d'installation. Le script est un fichier en [YAML](http://yaml.org/). Il me semble que sa spécificité principale est de ne pas nécessiter d'agent et d'être exécuter principalement via SSH, d'avoir un faible impact mémoire. 
 
 Il y a (IMHO) 3 concepts majeurs à prendre en compte :
  - Le playbook
  - Les modules
- - Les roles
+ - Les rôles
  
 ### le playbook 
 
-C'est le script d'installation à proprement parler. Il contient un suite de propriété qui seront utiliser pour exécuté l'installation de la machine distante.
+C'est le script d'installation à proprement parler. Il contient une suite de propriétés qui seront utilisées pour exécuter l'installation de la machine distante.
 
 ###les modules
 
-Les modules sont les "commandes" qu'il est possible d'éxécuter directement par ansible. Elles sont développé en python et encapsule des actions de plus bas niveau (yum install, mkdir, service start etc...) 
+Les modules sont les "commandes" qu'il est possible d'exécuter directement par ansible. Elles sont développées en python et encapsulent des actions de plus bas niveau (yum install, mkdir, service start etc...) 
 
-###Les roles
+###Les rôles
 
-Les roles sont des playbooks qui définissent un ensemble ou sous ensemble d'operations d'installation. Au sein de votre SI (système d'information) vous avez des serveurs de base de données, des serveur d'application, des reverse-proxy, etc..., Ces roles sont donc des templates (modèle) d'installation.  
+Les rôles sont des playbooks qui définissent un ensemble ou sous ensemble d'opérations d'installation. Au sein de votre SI (système d'information) vous avez des serveurs de base de données, des serveurs d'application, des reverse-proxy, etc..., ces rôles sont donc des templates (modèle) d'installation.  
 
-NB : _L'internet, Git, c'est le partage, la capitalisation, le croudsourcing c'est pour cela qu'il existe [Galaxy Ansible](https://galaxy.ansible.com/) qui permets d'avoir une vaste bibliothèque de roles développer par des tiers.
+NB : _L'internet, Git, c'est le partage, la capitalisation, le croudsourcing c'est pour cela qu'il existe [Galaxy Ansible](https://galaxy.ansible.com/) qui permets d'avoir une vaste bibliothèque de rôles développer par des tiers.
 
 
-## En Pratique 
+## En pratique 
 ### Un playbook
 Un  playbook ressemble à cela :
 
@@ -70,7 +70,7 @@ ou bien
   vars:
     http_port: 80
     max_clients: 200
- roles:
+ rôles:
    - {role: webservers-template}
 ‘‘‘{% endcodeblock %}
 
@@ -92,37 +92,37 @@ README.md
 
 
 ## Installation/configuration
-Je passe ce point, il y a plein d'informration pour cela, j'ai pas eu de soucis avec pep (je doit commancé à m'y faire ;-)
+Je passe ce point, il y a plein d'information pour cela, je n’ai pas eu de soucis avec pep (je dois commencer à m'y faire) ;-)
 
 ## En pratique                                            
-Sur cette base, j'ai essayé de crée des roles pour [XWiki](http://www.xwiki.org) à titre d'exercices. J'ai donc divisé ma stack (pile applicative) suivant ces différents roles :
+Sur cette base, j'ai essayé de créer des rôles pour [XWiki](http://www.xwiki.org) à titre d'exercices. J'ai donc divisé ma stack (pile applicative) suivant ces différents rôles :
  - [jdk](https://github.com/kanedafromparis/ansible-xwiki-jdk)
  - [mysql](https://github.com/kanedafromparis/ansible-xwiki-mysql)
  - [tomcat](https://github.com/kanedafromparis/ansible-xwiki-tomcat)
  - [war](https://github.com/kanedafromparis/ansible-xwiki-war)
  - [ctrl](https://github.com/kanedafromparis/ansible-xwiki-ctrl)
 
-Vous trouverez les roles sur git-hub et les exercices de variabilisation [ici](https://github.com/kanedafromparis/ansible-xwiki-example)
+Vous trouverez les rôles sur git-hub et les exercices de variabilisation [ici](https://github.com/kanedafromparis/ansible-xwiki-example)
 
 En pratique, je peux donc installer sur un serveur "debian" le jdk 7 ou 8 (openjdk ou oracle), mysql que je veux (debian ou mysql.org), la version d'Xwiki que je souhaite. En modifiant les vars de mon script ou la target de mon playbook.
  
 # Conclusion
 ## Complexité et modularité
-Mon constat est que comme souvant le niveau de variablilisation, ce qu'il faut rendre paramètrable, est toujours un curseur à revoir en fonction du context et de ce que l'on souhaite mettre en oeuvre.
+Mon constat est que comme souvent le niveau de variablilisation, de ce qu'il faut rendre paramétrable, est toujours un curseur à revoir en fonction du contexte et de ce que l'on souhaite mettre en oeuvre.
 
 ## Strategie d'upload
-Ayant travaillé depuis ma machine local, j'ai downloader plusieur fois au cours de l'exercice les paquets de plusieur Mo. Il y a des stratégie, pour les copier depuis sa machine et/ou répliqué en //. C'est un point qu'il est nécessaire de creuser en fonction de son environement.
+Ayant travaillé depuis ma machine locale, j'ai downloadé plusieurs fois au cours de l'exercice les paquets de plusieurs Mo. Il y a des stratégies, pour les copier depuis sa machine et/ou répliquer en parallèle. C'est un point qu'il est nécessaire de creuser en fonction de son environnement.
 
 ## Immuabilité et test
-Personnelement, j'ai utilisé Virtualbox pour faire des snapshot et valider mes playbook, j'ai regardé pour le fun docker+jenkins, un retour dessus peux-être plus tard. 
+Personnellement, j'ai utilisé Virtualbox pour faire des snapshot et valider mes playbook, j'ai regardé pour le fun docker+jenkins, un retour dessus peut être plus tard. 
 
 ## Strategie de template de VM
-Avec ansible, je produit un script d'installation qui me permets notament d'avoir un seul script quelque soit mes environements (en ayant variabilisé les OS). mais cela peu prendre un certain temps, il peut y avoir des gains à partir d'image de VM provisionner.
-J'ai entendu parler d'utiliser ansible sur docker pour les environnements de dev et d'appliqué ces derniers sur des VM pour la prod.
-A creusé...
+Avec ansible, je produis un script d'installation qui me permet notamment d'avoir un seul script, quels que soient mes environnements (en ayant variabilisé les OS), mais cela peu prendre un certain temps, il peut y avoir des gains à partir d'image de VM provisionner.
+J'ai entendu parler d'utiliser ansible sur docker pour les environnements de dev et d'appliquer ces derniers sur des VM pour la prod.
+À creuser...
 
-# Les deux trois trucs pour debugger
-#### Pour connaitre les facts
+# Les deux trois trucs pour débugger
+#### Pour connaître les facts
 {% codeblock lang:bash %}
 ansible -m setup nodexwiki | less
 {% endcodeblock %}

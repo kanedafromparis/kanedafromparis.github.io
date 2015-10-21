@@ -11,14 +11,14 @@ categories:
 ---
 {% img left half images/blog_run.svg 150 120 "Main theme is run" "Run" %}
 ---
-# L'acces à distance
-Dans mon blog précédent, on s'est rappeler combien la ligne de commande était un outil pratique et que cela permettait d'automatiser des opérations. L'informatique c'est l'automatisation par nature.
-La ligne de commande permets donc d'enchainer mes taches. C'est une abstraction en cela que votre ligne de commande peux être éxécuté à distance.
+# L'accès à distance
+Dans mon blog précédent, on s'est rappelé combien la ligne de commande était un outil pratique et que cela permettait d'automatiser des opérations. L'informatique c'est l'automatisation par nature.
+La ligne de commande permet donc d'enchaîner mes taches. C'est une abstraction en cela que votre ligne de commande peut être exécutée à distance.
 Historiquement via telnet, mais le flux réseau en telnet n'est pas chiffrer, on préfère donc utiliser SSH (Secure Shell).
 
 # SSH
 ## Clés publiques
-Pour que l'échange soit privé, il y a un méchanisme de chiffrement assymetrique, avec un cles priver et une clés public. Lorsque vous vous connecter à un serveur ayant un service SSH, vous faites un échange de clés. La clés du serveur sera associté à son IP dans ~/.ssh/known_hosts.
+Pour que l'échange soit privé, il y a un mécanisme de chiffrement asymétrique, avec un CLe priver et une clé publique. Lorsque vous vous connectez à un serveur ayant un service SSH, vous faites un échange de clés. La clé du serveur sera associée à son IP dans ~/.ssh/known_hosts.
 
 ```Bash
 # ssh jvaljeanuser@example.com
@@ -28,20 +28,20 @@ Host 'example.com' added to the list of known hosts.
 user@example.com's password: *******
 ```
 
-Par defaut, un serveur ssh authorise l'authentification par mot de passe. C'est pratique, mais finalement pas tellement sécurisé.
-*Pizza73* et *01022008* sont des mots de passes facile à bruteforcer. Il est donc préférable de préférer une authentification par clés.
+Par défaut, un serveur ssh autorise l'authentification par mot de passe. C'est pratique, mais finalement pas tellement sécurisé.
+*Pizza73* et *01022008* sont des mots de passe faciles à bruteforcer. Il est donc préférable de préférer une authentification par clés.
 
 ## configuration OpenSSH
-Pour mieux sécuriser son serveur on va :
+Pour mieux sécuriser son serveur, on va :
 
  - interdire l'utilisateur root
  - interdire l'authentification par mots de passe
- - definir l'emplacement des clés authorisé
- - ajoute la clés de l'utilisateur jvaljean (on vera comment la créer plus loin)
+ - définir l'emplacement des clés autorisé
+ - ajoute la clés de l'utilisateur jvaljean (on verra comment la créer plus loin)
 
-NB : Cette commande est proposé en root, mais elle passe avec sudo.
+NB : Cette commande est proposée en root, mais elle passe avec sudo.
 
-** ATTENTION ** après cela on ne peut plus ce connecter avec l'utilistateur root 
+** ATTENTION ** après cela on ne peut plus ce connecter avec l'utilisateur root 
 
 {% codeblock lang:bash %}
 TIMESLOT=`date +%Y-%m-%d-%H-%M-%S` && cp /etc/ssh/sshd_config /etc/ssh/sshd_config.$TIMESLOT && \
@@ -54,16 +54,16 @@ chown -Rv jvaljean:jvaljean /home/jvaljean/.ssh/ && \
 chmod u+rw,og-rwx /home/jvaljean/.ssh/authorized_keys
 {% endcodeblock %}
 
-Maintenant, l'utilisateur root ne peux plus ce connecter, l'utilisateur jvaljean peux se connecter uniquement avec sa clés public "ssh-rsa X2x..."
+Maintenant, l'utilisateur root ne peux plus ce connecter, l'utilisateur jvaljean peut se connecter uniquement avec sa clé publique "ssh-rsa X2x..."
 
-## creation de la clé
+## création de la clé
 
-Pour crée sa cles il faut choisir : 
+Pour créer sa cles il faut choisir : 
 
-- sa taille : *4 096* (d'après l'ansii donne un durée de vie acceptable ici : http://www.ssi.gouv.fr/uploads/2015/01/RGS_v-2-0_B1.pdf)
+- sa taille : *4 096* (d'après l'ANSII donne une durée de vie acceptable ici : http://www.ssi.gouv.fr/uploads/2015/01/RGS_v-2-0_B1.pdf)
 - l'algorithme : RSA (par défaut)
-- l'emplacement de la clés (Et oui, on peux et devrais avoir plusieurs clés, on y reviendra plus loin, sinon c'est id_rsa)
-- un mot de passe pour utiliser la clés (evitons pizza82)
+- l'emplacement de la clé (Et oui, on peut et devrais avoir plusieurs clés, on y reviendra plus loin, sinon c'est id_rsa)
+- un mot de passe pour utiliser la clé (évitons pizza82)
 
 {% codeblock lang:bash %}
 ssh-keygen -t rsa -b 4096 -C "jvaljean@example.com"
@@ -73,7 +73,7 @@ ou
 ssh-keygen -t rsa -b 4096 -C "jvaljean@example.com" -f ~/.ssh/id_mongroupedeserver_algo
 {% endcodeblock %}
 
-Après on peux se connecter au serveur ayant notre clés avec la commande ssh
+Après on peut se connecter au serveur ayant notre clé avec la commande ssh
 Rappel : 
 {% codeblock lang:bash %}
 ssh example.com
@@ -83,23 +83,23 @@ ou
 ssh -p 22 -i ~/.ssh/id_mongroupedeserver_algo jvaljean@example.com
 {% endcodeblock %} 
 ## le port-mapping 
-Une fonction très pratique de SSH est le port mapping il est possible de mapper un port de votre client local à celui du serveur distant. Cela permets de vous contecter à distance sur vos serveur comme si vouys etiez dans votre réseau. on 
-peut par exemple mapper le port 8080 d'un tomcat sur sont 8888 local comme ceci
+Une fonction très pratique de SSH est le port mapping il est possible de mapper un port de votre client local à celui du serveur distant. Cela permet de vous connecter à distance sur vos serveurs comme si vous étiez dans votre réseau. on 
+peut par exemple mapper le port 8080 d'un Tomcat sur son 8888 local comme ceci
  
  
 {% codeblock lang:bash %}
 ssh -p 22 -i ~/.ssh/id_mongroupedeserver_algo jvaljean@example.com -L 127.0.0.1:8888:example.com:8080
 {% endcodeblock %} 
 
-on pourra par la suite acceder depuis son client web local sur http://127.0.0.1:8888 comme si nous etions sur le réseau local de la machine
+on pourra par la suite accéder depuis son client web local sur http://127.0.0.1:8888 comme si nous étions sur le réseau local de la machine
 
 ## ~/.ssh/config
-Nous l'avons vu précédement, la cles d'authenfication est précieuse, mais il est parfois nécessaire de la copier sur d'autre machine, elle peu être corromput ou obsolète. Enfin, certain groupe de serveur peuvent nécessité des sécurité différentes.
-Pour cela, il est conseiller d'avoir plusieurs cles. Pour éviter de taper des commande trop longue, il est possible de définir les commandes "par defaut, par host dans "~/.ssh/config" sous la forme :
+Nous l'avons vu précédemment, la clé d'authenfication est précieuse, mais il est parfois nécessaire de la copier sur d'autre machine, elle peut être corrompu ou obsolète. Enfin, certains groupes de serveur peuvent nécessiter des sécurités différentes.
+Pour cela, il est conseillé d'avoir plusieurs cles. Pour éviter de taper des commandes trop longues, il est possible de définir les commandes "par défaut, par host dans "~/.ssh/config" sous la forme :
 
-- Host : les serveurs utilisant cette configuration (liste séparé d'un espace)
--       Hostname : le nom du serveur qui appel celui annocé par le client
-        User : le nom de l'utilisateur a utiliser
+- Host : les serveurs utilisant cette configuration (liste séparée d'un espace)
+-       Hostname : le nom du serveur qui appelle celui annoncé par le client
+        User : le nom de l'utilisateur à utiliser
 	      IdentityFile ~/.ssh/id_github_mb35_rsa
 	      
 {% codeblock lang:bash %}
@@ -107,9 +107,9 @@ Host example.com
         Hostname jvaljean@example.com
         User jvaljean@example.com
         LocalForward 8888 127.0.0.1:8080
-	      IdentityFile ~/.ssh/id_mongroupedeserver_algo
-	      
+	      IdentityFile ~/.ssh/id_mongroupedeserver_algo	      
 {% endcodeblock %} 
 
 ## Conclusion
-SSH est l'outil de base du sysadmin et du très tendance DevOps. IMHO (a mon humble avis) "~/.ssh/config" n'est pas suffissement connu. 
+SSH est l'outil de base du sysadmin et du très tendance DevOps. 
+IMHO (à mon humble avis) "~/.ssh/config" n'est pas suffissement connu. 
