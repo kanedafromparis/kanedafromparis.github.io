@@ -24,4 +24,5 @@ IMHO, elle devrait contenir :
 * **Risques et points d’attentions ** :  Il est souvent intéressant de lister dès que possible les risques et points d’attention afin de permettre de prévenir un maximum celle-ci.
 * **Durée calendaire (options) ** :  Les entrants nécessaires à la tache
 * **Charge (options) ** :  Une estimation en jour/homme
-* **Livrables ** :  Une estimation en jour/homme
+* **Livrables ** : La liste des production attendu de la tache
+
